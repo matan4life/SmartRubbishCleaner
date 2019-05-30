@@ -1,0 +1,65 @@
+﻿<UserControl
+    x:Class="TrashMobile.UserViews.AddDeviceView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:TrashMobile.UserViews"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid HorizontalAlignment="Stretch"
+          VerticalAlignment="Stretch"
+          Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <StackPanel HorizontalAlignment="Stretch"
+                    VerticalAlignment="Top">
+            <TextBlock x:Name="Title"
+                       Text="{Binding PageResources.AddDevice, Source={StaticResource LocalizedStrings}}"
+                       HorizontalAlignment="Center"
+                       Margin="12"
+                       FontSize="20"
+                       Style="{StaticResource HeaderTextBlockStyle}"/>
+
+            <TextBox x:Name="Radius"
+                     Header="{Binding PageResources.Radius, Source={StaticResource LocalizedStrings}}"
+                     Margin="8"
+                     Text="{Binding DeviceViewModel.AddingDevice.ActionRange, Source={StaticResource ViewModelLocator}, Converter={StaticResource DoubleToStringConverter}, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                     PlaceholderText="{Binding PageResources.EnterRadius, Source={StaticResource LocalizedStrings}}"
+                     HorizontalAlignment="Stretch"
+                     MaxWidth="300"/>
+
+            <TextBox x:Name="Wieght"
+                     Header="{Binding PageResources.MaxWeight, Source={StaticResource LocalizedStrings}}"
+                     Margin="8,0"
+                     Text="{Binding DeviceViewModel.AddingDevice.MaxWeight, Source={StaticResource ViewModelLocator}, Converter={StaticResource DoubleToStringConverter}, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                     PlaceholderText="{Binding PageResources.EnterMaxWeight, Source={StaticResource LocalizedStrings}}"
+                     HorizontalAlignment="Stretch"
+                     MaxWidth="300"/>
+
+            <TextBox x:Name="Volume"
+                     Header="{Binding PageResources.MaxVolume, Source={StaticResource LocalizedStrings}}"
+                     Margin="8"
+                     Text="{Binding DeviceViewModel.AddingDevice.MaxVolume, Source={StaticResource ViewModelLocator}, Converter={StaticResource DoubleToStringConverter}, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                     PlaceholderText="{Binding PageResources.EnterMaxVolume, Source={StaticResource LocalizedStrings}}"
+                     HorizontalAlignment="Stretch"
+                     MaxWidth="300"/>
+
+            <Button x:Name="SaveButton"
+                    Margin="8,0"
+                    HorizontalAlignment="Center"
+                    Width="200"
+                    Content="{Binding PageResources.Save, Source={StaticResource LocalizedStrings}}"
+                    Command="{Binding DeviceViewModel.AddDeviceCommand, Source={StaticResource ViewModelLocator}}"
+                    Click="Close"/>
+
+        </StackPanel>
+        
+        <Button x:Name="ButtonClose"
+                Height="32"
+                Width="32"
+                Margin="24,12,0,0"
+                Content="&#xE112;"
+                Style="{StaticResource ButtonCloseStyle}"
+                Click="Close"/>
+    </Grid>
+</UserControl>

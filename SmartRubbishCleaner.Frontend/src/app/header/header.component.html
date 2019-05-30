@@ -1,0 +1,24 @@
+<nav class="navbar navbar-dark bg-dark mb-5">
+  <a class="navbar-brand" routerLink='/main'>ARKPZ-front</a>
+  <div class="navbar-expand mr-auto">
+    <div class="navbar-nav">
+      <a class="nav-item nav-link active" routerLink='/main' translate>Home</a>
+      <a class="nav-item nav-link" routerLink='/devices' translate>Devices</a>
+      <a class="nav-item nav-link" routerLink='/cans' translate>TrashCans</a>
+      <a *ngIf="model.role=='admin'" class="nav-item nav-link" routerLink="/administrate/users" translate>UserTitle</a>
+      <a *ngIf="model.role=='admin'" class="nav-item nav-link" routerLink="/administrate/subs" translate>SubTitle</a>
+      <a *ngIf="model.role=='admin'" class="nav-item nav-link" routerLink="/administrate/factories" translate>FacTitle</a>
+      <a *ngIf="model.role=='admin'" class="nav-item nav-link" routerLink="/administrate/devices" translate>DevTitle</a>
+    </div>
+  </div>
+  <div class="navbar-expand ml-auto navbar-nav">
+    <div class="navbar-nav">
+      <a class="nav-item nav-link" *ngIf="model.userId==''" routerLink='/register' translate>Register</a>
+      <a class="nav-item nav-link" *ngIf="model.userId==''" routerLink='/login' translate>Login</a>
+      <a class="nav-item nav-link" *ngIf="model.userId!=''" routerLink='/personal' translate>{{ 'Welcome' | translate:model }}</a>
+      <a class="nav-item nav-link" *ngIf="model.userId!=''" routerLink='/logout' translate>Logout</a>
+      <button class="btn btn-info" (click)="switchLanguage('uk')" translate>Ukrainian</button>
+      <button class="btn btn-info" (click)="switchLanguage('en')" translate>English</button>
+    </div>
+  </div>
+</nav>

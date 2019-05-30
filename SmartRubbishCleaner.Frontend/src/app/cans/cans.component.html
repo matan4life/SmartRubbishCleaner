@@ -1,0 +1,26 @@
+<h2 translate>TrashCansTitle</h2>
+
+<div class="table-responsive">
+    <table class="table table-bordered">
+        <thead class="thead-dark">
+            <th translate>TrashCansId</th>
+            <th translate>TrashCansLongtitude</th>
+            <th translate>TrashCansLatitude</th>
+            <th translate>TableDevice</th>
+        </thead>
+        <tr class="table-info" *ngFor="let c of deviceCans">
+            <td>{{c.trashCanId}}</td>
+            <td>{{c.longtitude}}</td>
+            <td>{{c.latitude}}</td>
+            <td>{{c.deviceId}}</td>
+        </tr>
+    </table>
+    <div class="form-group">
+        <button class="btn btn-info" (click)="redirect()" translate>TrashCansAdd</button>
+    </div>
+    <agm-map [latitude] = "point.y" [longitude] = "point.x" [zoom]="zoom">
+        <agm-marker *ngFor="let c of deviceCans" [latitude]="c.latitude" [longitude]="c.longtitude"></agm-marker>
+        <agm-circle *ngIf="subscription=='Premium'" [latitude]="point.y" [longitude]="point.x" [radius]="1000" [fillColor]="'red'"></agm-circle>
+        <agm-circle *ngIf="subscription=='Usual'" [latitude]="point.y" [longitude]="point.x" [radius]="100" [fillColor]="'red'"></agm-circle>
+    </agm-map>
+</div>

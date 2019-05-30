@@ -1,0 +1,24 @@
+<h2 translate>FacTitle</h2>
+
+<div class="table-responsive">
+    <table class="table table-bordered">
+        <thead class="thead-dark">
+            <th translate>TrashCansLatitude</th>
+            <th translate>TrashCansLongtitude</th>
+            <th></th>
+        </thead>
+        <tr class="table-info" *ngFor="let u of factories">
+            <td>{{u.latitude}}</td>
+            <td>{{u.longtitude}}</td>
+            <td>
+                <div class="row">
+                  <div class="col-xs-3"><button class="btn btn-danger" (click)="delete(u)" translate>Delete</button></div>
+                  <div class="col-xs-3"><button class="btn btn-warning" (click)="edit(u)" translate>Edit</button></div>
+                </div>
+            </td>
+        </tr>
+    </table>
+    <div class="form-group">
+        <button class="btn btn-success" (click)="add()" translate>Add</button>
+      </div>
+</div>

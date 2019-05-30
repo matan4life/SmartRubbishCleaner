@@ -1,0 +1,20 @@
+<h2 translate>{{'DevTitleEdit' | translate:dev}}</h2>
+<div class="container-fluid">
+  <div class="form-horizontal">
+    <div class="form-group">
+      <label for="name" translate>TableRange</label>
+      <input type="number" step="any" [(ngModel)]="dev.actionRange" class="form-control" id="name" name="name">
+    </div>
+    <div class="form-group">
+      <label for="price" translate>TableVolume</label>
+      <input type="number" step="any" [(ngModel)]="dev.maxVolume" class="form-control" id="price" name="price">
+    </div>
+    <div class="form-group">
+        <label for="kek" translate>TableWeight</label>
+        <input type="number" step="any" [(ngModel)]="dev.maxWeight" class="form-control" id="kek" name="kek">
+      </div>
+    <div class="form-group">
+      <button class="btn btn-success" (click)="add()" translate>DevEdit</button>
+    </div>
+  </div>
+</div>

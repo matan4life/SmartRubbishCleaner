@@ -1,0 +1,26 @@
+<h2 translate>DevTitle</h2>
+
+<div class="table-responsive">
+    <table class="table table-bordered">
+        <thead class="thead-dark">
+            <th translate>TableRange</th>
+            <th translate>TableWeight</th>
+            <th translate>TableVolume</th>
+            <th></th>
+        </thead>
+        <tr class="table-info" *ngFor="let u of devices">
+            <td>{{u.actionRange}}</td>
+            <td>{{u.maxWeight}}</td>
+            <td>{{u.maxVolume}}</td>
+            <td>
+                <div class="row">
+                  <div class="col-xs-3"><button class="btn btn-danger" (click)="delete(u)" translate>Delete</button></div>
+                  <div class="col-xs-3"><button class="btn btn-warning" (click)="edit(u)" translate>Edit</button></div>
+                </div>
+            </td>
+        </tr>
+    </table>
+    <div class="form-group">
+        <button class="btn btn-success" (click)="add()" translate>Add</button>
+      </div>
+</div>

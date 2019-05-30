@@ -1,0 +1,21 @@
+<h2 translate>MainTitle</h2>
+
+<div class="container">
+    <dl>
+        <dt *ngIf="user.name==''" class="text text-info" translate>MainGuest</dt>
+        <dd *ngIf="user.name!='' && user.role=='user'" class="text text-primary" translate>{{'MainUser' | translate:user}}</dd>
+        <dt *ngIf="user.name!='' && user.role=='admin'" class="text text-warning" translate>MainAdmin</dt>
+        <dd *ngIf="user.name!=''" class="text text-info" translate>{{'MainSub' | translate: subscription}}</dd>
+        <dd *ngIf="subscription.identificationName=='Premium'" translate>MainCansPrem</dd>
+        <dd *ngIf="subscription.identificationName=='Premium'" translate>MainRangePrem</dd>
+        <dd *ngIf="subscription.identificationName=='Premium'" translate>MainOptPrem</dd>
+        <dd *ngIf="subscription.identificationName=='Usual'" translate>MainCansUs</dd>
+        <dd *ngIf="subscription.identificationName=='Usual'" translate>MainRangeUs;</dd>
+        <dd *ngIf="subscription.identificationName=='Usual'" translate>MainOptUs</dd>
+    </dl>
+    <div class="row">
+        <div class="col lg-12">
+            <img [src]="'/assets/images/15.jpg'" alt="image">
+            <div></div>
+        </div>
+    </div>

@@ -1,0 +1,22 @@
+<h2 translate>TrashCansAddTitle</h2>
+<div class="container-fluid">
+  <div class="form-horizontal">
+    <div class="form-group">
+      <label for="device" translate>TableDevice</label>
+      <select class="form-control" id="device" name="device" [(ngModel)]="can.deviceId">
+        <option *ngFor="let d of userDevices">{{d.deviceId}}</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <agm-map [latitude]="point.y" [longitude]="point.x" [zoom]="15" [disableDefaultUI]="false" [zoomControl]="false"
+        (mapClick)="mapClicked($event)">
+        <agm-marker [latitude]="marker.lat" [longitude]="marker.lng"></agm-marker>
+        <!-- <agm-circle *ngIf="subscription=='Premium'" [latitude]="point.y" [longitude]="point.x" [radius]="1000" [fillColor]="'red'"></agm-circle>
+        <agm-circle *ngIf="subscription=='Usual'" [latitude]="point.y" [longitude]="point.x" [radius]="100" [fillColor]="'red'"></agm-circle> -->
+      </agm-map>
+    </div>
+    <div class="form-group">
+      <button class="btn btn-success" (click)="add()" translate>TrashCansAdd</button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,109 @@
+﻿<UserControl
+    x:Class="TrashMobile.UserViews.DeviceView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:TrashMobile.UserViews"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:maps="using:Windows.UI.Xaml.Controls.Maps"
+    xmlns:models="using:TrashMobile.Models.Models"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid HorizontalAlignment="Stretch"
+          VerticalAlignment="Stretch"
+          Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
+          ScrollViewer.HorizontalScrollMode="Enabled"
+          ScrollViewer.HorizontalScrollBarVisibility="Auto">
+        <StackPanel x:ConnectionId='2' x:Name="MainGrid"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Top"
+                    ScrollViewer.HorizontalScrollMode="Enabled"
+                    ScrollViewer.HorizontalScrollBarVisibility="Auto">
+            
+            <TextBlock x:ConnectionId='5' x:Name="Title"
+                       Text="{Binding PageResources.Device, Source={StaticResource LocalizedStrings}}"
+                       HorizontalAlignment="Center"
+                       Margin="12"
+                       FontSize="20"
+                       Style="{StaticResource HeaderTextBlockStyle}"/>
+
+            <Button x:ConnectionId='6' x:Name="DeviceDeviceButton"
+                    Content="{Binding PageResources.DeleteDevice, Source={StaticResource LocalizedStrings}}"
+                    Width="200"
+                    Command="{Binding DeviceViewModel.DeleteCommand, Source={StaticResource ViewModelLocator}}"
+                                 
+                    HorizontalAlignment="Center"/>
+
+            <TextBlock x:ConnectionId='7' x:Name="TrashCansTitle"
+                       Text="{Binding PageResources.ServedTrashCans, Source={StaticResource LocalizedStrings}}"
+                       HorizontalAlignment="Center"
+                       Margin="12,20,12,12"
+                       FontSize="18"
+                       Style="{StaticResource HeaderTextBlockStyle}"/>
+
+            
+
+            <Button x:ConnectionId='8' x:Name="AddTrashCanButton"
+                    Content="{Binding PageResources.AddTrashCan, Source={StaticResource LocalizedStrings}}"
+                    Width="200"
+                    Command="{Binding DeviceViewModel.DeleteCommand, Source={StaticResource ViewModelLocator}}"
+                                                 
+                    HorizontalAlignment="Center"/>
+
+            <GridView x:ConnectionId='9' x:Name="TrashCans"
+                      HorizontalAlignment="Stretch"
+                      VerticalAlignment="Top"
+                      ItemsSource="{Binding DeviceViewModel.TrashCanViewModel.TrashCans, Source={StaticResource ViewModelLocator}, UpdateSourceTrigger=PropertyChanged}">
+                <GridView.ItemTemplate>
+                    <DataTemplate                             >
+                        <StackPanel Height="84" 
+                                Padding="20,0"
+                                VerticalAlignment="Center">
+
+                            <TextBlock x:Name="DeviceIdTextBlock"
+                                       Margin="0,8,0,0"
+                                       FontSize="17"
+                                       Style="{ThemeResource BaseTextBlockStyle}">
+                            <Run Text="{Binding PageResources.TrashCanId, Source={StaticResource LocalizedStrings}}"/>
+                            <Run Text="{Binding TrashCanId, Converter={StaticResource DoubleToStringConverter}}"/>
+                            </TextBlock>
+
+                            <TextBlock x:Name="VolumeTextBlock"
+                                   FontSize="15"
+                                   Style="{ThemeResource CaptionTextBlockStyle}" 
+                                   Opacity="0.8"
+                                   Margin="0,4,0,0">
+                            <Run Text="{Binding PageResources.Latitude, Source={StaticResource LocalizedStrings}}"/>
+                            <Run Text="{Binding Latitude, Converter={StaticResource DoubleToStringConverter}}"/>
+                            </TextBlock>
+
+                            <TextBlock x:Name="WeightTextBlock"
+                                   Margin="0,4,0,8"
+                                   FontSize="15"
+                                   Style="{ThemeResource CaptionTextBlockStyle}" 
+                                   Opacity="0.8">
+                            <Run Text="{Binding PageResources.Longtitude, Source={StaticResource LocalizedStrings}}"/>
+                            <Run Text="{Binding Longtitude, Converter={StaticResource DoubleToStringConverter}}"/>
+                            </TextBlock>
+                        </StackPanel>
+                    </DataTemplate>
+                </GridView.ItemTemplate>
+            </GridView>
+
+        </StackPanel>
+        <Button x:ConnectionId='3' x:Name="ButtonClose"
+                Height="32"
+                Width="32"
+                Margin="24,12,0,0"
+                Content="&#xE112;"
+                Style="{StaticResource ButtonCloseStyle}"
+                             />
+
+        <local:AddTrashCanView x:ConnectionId='4' x:Name="AddTrashCanDialog"
+                               HorizontalAlignment="Stretch"
+                               VerticalAlignment="Stretch"
+                               Visibility="Collapsed"/>
+    </Grid>
+</UserControl>
+

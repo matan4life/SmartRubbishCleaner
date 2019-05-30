@@ -1,0 +1,16 @@
+<h2 translate>{{'SubTitleEdit' | translate:sub}}</h2>
+<div class="container-fluid">
+  <div class="form-horizontal">
+    <div class="form-group">
+      <label for="name" translate>SubName</label>
+      <input type="text" [(ngModel)]="sub.identificationName" class="form-control" id="name" name="name">
+    </div>
+    <div class="form-group">
+        <label for="price" translate>SubPrice</label>
+        <input type="number" step="any" [(ngModel)]="sub.price" class="form-control" id="price" name="price">
+      </div>
+    <div class="form-group">
+      <button class="btn btn-success" (click)="edit()" translate>SubEdit</button>
+    </div>
+  </div>
+</div>

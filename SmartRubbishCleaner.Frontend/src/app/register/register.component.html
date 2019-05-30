@@ -1,0 +1,13 @@
+<div class="containter-fluid">
+  <div class="form-horizontal">
+    <div class="form-group">
+      <label for="email" class="form-control" translate>PersonalEmail</label>
+      <input type="email" id="email" name="email" [(ngModel)]="model.email" class="form-control">
+    </div>
+    <div class="form-group">
+      <label for="password" class="form-control" translate>LoginPassword</label>
+      <input type="password" id="password" name="password" [(ngModel)]="model.password" class="form-control">
+    </div>
+    <button type="button" (click)="submit()" class="btn btn-primary" translate>RegisterAction</button>
+  </div>
+</div>

@@ -1,0 +1,16 @@
+<h2 translate>{{'FacTitleEdit' | translate:fac}}</h2>
+<div class="container-fluid">
+  <div class="form-horizontal">
+    <div class="form-group">
+      <label for="name" translate>TrashCansLatitude</label>
+      <input type="number" step="any" [(ngModel)]="fac.latitude" class="form-control" id="name" name="name">
+    </div>
+    <div class="form-group">
+        <label for="price" translate>TrashCansLongtitude</label>
+        <input type="number" step="any" [(ngModel)]="fac.longtitude" class="form-control" id="price" name="price">
+      </div>
+    <div class="form-group">
+      <button class="btn btn-success" (click)="edit()" translate>FacEdit</button>
+    </div>
+  </div>
+</div>
